@@ -83,14 +83,33 @@ OPTIONS
                 These photos are scaled to 500 pixels at the longest
                 dimension. A _m extension is added.
 
+            * medium_640
+                These photos are scaled to 640 pixels at the longest
+                dimension. A _z extension is added.
+
             * square
                 These photos are to cropped to 75 x 75 pixels at the center.
                 A _s extension is added.
+
+            * site_mp4
+                The MP4 version of a video uploaded to Flickr. A _site
+                extension is added.
+
+            * video_original
+                An original video uploaded to Flickr. No extentsion is
+                added.
 
     * fetch_original
         Boolean.
 
         Retrieve the "original" version of a photo from the Flickr servers.
+
+        Default is true.
+
+    * fetch_video_original
+        Boolean.
+
+        Retrieve the "original" version of a video from the Flickr servers.
 
         Default is true.
 
@@ -103,11 +122,27 @@ OPTIONS
 
         Default is false.
 
+    * fetch_medium_640
+        Boolean.
+
+        Retrieve the "medium" version of a photo from the Flickr servers;
+        these photos have been scaled to 640 pixels at the longest
+        dimension.
+
+        Default is false.
+
     * fetch_square
         Boolean.
 
         Retrieve the "square" version of a photo from the Flickr servers;
         these photos have been cropped to 75 x 75 pixels at the center.
+
+        Default is false.
+
+    * fetch_site_mp4
+        Boolean.
+
+        Retrieve the "site MP4" version of a video from the Flickr servers;
 
         Default is false.
 
@@ -191,25 +226,6 @@ OPTIONS
             <geoname:city>Santa Clara</geoname:city>
             <geoname:gtopo30>2</geoname:gtopo30>
          </geoname:Feature>
-
-    * <query_trynt_color_api>
-        Boolean.
-
-        If true, the trynt colour extraction web service will be queried
-        with the URL for the "medium" sized photo. Each colour will be added
-        as it's own description, referenced from the photo's principal
-        description. For example :
-
-         <flickr:photo rdf:about="http://www.flickr.com/photos/35034348999@N01/299815039">
-           <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/299815039#c0c0c0"/>
-         </flickr:photo>
-
-         <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/299815039#c0c0c0">
-            <trynt:hexidecimal>c0c0c0</trynt:hexidecimal>
-            <trynt:count>654</trynt:count>
-         </trynt:color>
-
-        Default is false.
 
   iptc
     * do_dump
@@ -349,9 +365,6 @@ OBJECT METHODS YOU MAY CARE ABOUT
     skos
         http://www.w3.org/2004/02/skos/core#
 
-    trynt
-        http://www.trynt.com#
-
     *Net::Flickr::Backup* adds the following namespaces :
 
     computer
@@ -449,7 +462,6 @@ EXAMPLES
       xmlns:nfr_geo="http://www.machinetags.org/wiki/geo#debug"
       xmlns:place="x-urn:flickr:place:"
       xmlns:exif="http://nwalsh.com/rdf/exif#"
-      xmlns:trynt="http://www.trynt.com#"
       xmlns:mt="x-urn:flickr:machinetag:"
       xmlns:exifi="http://nwalsh.com/rdf/exif-intrinsic#"
       xmlns:geonames="http://www.machinetags.org/wiki/geonames#feature"
@@ -526,20 +538,6 @@ EXAMPLES
         <exif:shutterSpeedValue>4351/1000</exif:shutterSpeedValue>
         <exif:exposureTime>0.049 sec (49/1000)</exif:exposureTime>
       </rdf:Description>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#604040">
-        <trynt:hexidecimal>604040</trynt:hexidecimal>
-        <trynt:count>472</trynt:count>
-      </trynt:color>
-
-      <rdf:Description rdf:about="x-urn:flickr:tag">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-      </rdf:Description>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#000000">
-        <trynt:hexidecimal>000000</trynt:hexidecimal>
-        <trynt:count>4841</trynt:count>
-      </trynt:color>
 
       <flickr:tag rdf:about="http://www.flickr.com/photos/35034348999@N01/tags/sanfrancisco">
         <skos:prefLabel>san francisco</skos:prefLabel>
@@ -655,16 +653,6 @@ EXAMPLES
         <a:hasAnnotation rdf:resource="http://www.flickr.com/photos/straup/522214395/#comment72157600295486776"/>
         <a:hasAnnotation rdf:resource="http://www.flickr.com/photos/straup/522214395/#comment72157600293655654"/>
         <geo:Point rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#location"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#000000"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#c0c0c0"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#200000"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#402020"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#808080"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#a08080"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#000020"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#c0a0a0"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#604040"/>
-        <trynt:hasColor rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#806060"/>
       </flickr:photo>
 
       <dcterms:StillImage rdf:about="http://farm1.static.flickr.com/232/522214395_ed16f959a2_t.jpg">
@@ -696,26 +684,6 @@ EXAMPLES
         <skos:prefLabel rdf:resource="filtr:process=filtr"/>
       </flickr:tag>
 
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#808080">
-        <trynt:hexidecimal>808080</trynt:hexidecimal>
-        <trynt:count>726</trynt:count>
-      </trynt:color>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#a08080">
-        <trynt:hexidecimal>a08080</trynt:hexidecimal>
-        <trynt:count>575</trynt:count>
-      </trynt:color>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#000020">
-        <trynt:hexidecimal>000020</trynt:hexidecimal>
-        <trynt:count>499</trynt:count>
-      </trynt:color>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#402020">
-        <trynt:hexidecimal>402020</trynt:hexidecimal>
-        <trynt:count>749</trynt:count>
-      </trynt:color>
-
       <flickr:tag rdf:about="http://www.flickr.com/photos/tags/ph:camera=n95">
         <skos:altLabel>n95</skos:altLabel>
         <skos:broader rdf:resource="http://www.machinetags.org/wiki/ph#camera"/>
@@ -741,11 +709,6 @@ EXAMPLES
         <skos:altLabel rdf:resource="geo:debug=namespacetest"/>
       </flickr:tag>
 
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#200000">
-        <trynt:hexidecimal>200000</trynt:hexidecimal>
-        <trynt:count>841</trynt:count>
-      </trynt:color>
-
       <dcterms:StillImage rdf:about="http://farm1.static.flickr.com/232/522214395_ed16f959a2_m.jpg">
         <dcterms:relation>Small</dcterms:relation>
         <exifi:height>180</exifi:height>
@@ -758,11 +721,6 @@ EXAMPLES
       <rdf:Description rdf:about="x-urn:flickr:user">
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
       </rdf:Description>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#806060">
-        <trynt:hexidecimal>806060</trynt:hexidecimal>
-        <trynt:count>464</trynt:count>
-      </trynt:color>
 
       <flickr:machinetag rdf:about="http://www.machinetags.org/wiki/ph#camera">
         <mt:predicate>camera</mt:predicate>
@@ -788,11 +746,6 @@ EXAMPLES
         <rdfs:seeAlso rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395#exif"/>
       </dcterms:StillImage>
 
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#c0a0a0">
-        <trynt:hexidecimal>c0a0a0</trynt:hexidecimal>
-        <trynt:count>488</trynt:count>
-      </trynt:color>
-
       <flickr:place rdf:about="http://www.flickr.com/geo/United%20States/California/San%20Francisco/San%20Francisco">
         <place:county>San Francisco</place:county>
         <place:country>United States</place:country>
@@ -800,11 +753,6 @@ EXAMPLES
         <place:locality>San Francisco</place:locality>
         <dc:isReferencedBy rdf:resource="http://www.flickr.com/photos/35034348999@N01/522214395"/>
       </flickr:place>
-
-      <trynt:color rdf:about="http://www.flickr.com/photos/35034348999@N01/522214395#c0c0c0">
-        <trynt:hexidecimal>c0c0c0</trynt:hexidecimal>
-        <trynt:count>1475</trynt:count>
-      </trynt:color>
 
       <flickr:tag rdf:about="http://www.flickr.com/photos/tags/geo:debug=namespacetest">
         <skos:altLabel>namespace test</skos:altLabel>
@@ -815,7 +763,7 @@ EXAMPLES
       </rdf:RDF>
 
 VERSION
-    2.991
+    3.0
 
 DATE
     $Date: 2010/12/19 19:06:56 $

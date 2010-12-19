@@ -1,3 +1,4 @@
+\.git
 \bRCS\b
 \bCVS\b
 ,v$
@@ -13,3 +14,4 @@ Makefile.old$
 t/TEST$
 t/SMOKE$
 ^blibdirs\.ts
+~$
