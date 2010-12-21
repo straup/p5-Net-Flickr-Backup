@@ -21,6 +21,7 @@ OPTIONS
     or a valid Config::Simple config file. Options are grouped by "block".
 
   flickr
+
     * api_key
         String. *required*
 
@@ -46,6 +47,7 @@ OPTIONS
             Use XML::XPath.
 
   backup
+
     * photos_root
         String. *required*
 
@@ -161,6 +163,7 @@ OPTIONS
         Default is false.
 
   rdf
+
     * do_dump
         Boolean.
 
@@ -228,6 +231,7 @@ OPTIONS
          </geoname:Feature>
 
   iptc
+
     * do_dump
         Boolean.
 
@@ -253,11 +257,13 @@ OPTIONS
         Default is false.
 
   search
+
     Any valid parameter that can be passed to the *flickr.photos.search*
     method except 'user_id' which is pre-filled with the user_id that
     corresponds to the flickr.auth_token token.
 
   modified_since
+
     String.
 
     This specifies a time-based limiting criteria for fetching photos.
@@ -275,25 +281,31 @@ OPTIONS
 
 PACKAGE METHODS
   __PACKAGE__->new($cfg)
+
     Returns a *Net::Flickr::Backup* object.
 
 OBJECTS METHODS YOU SHOULD CARE ABOUT
   $obj->backup()
+
     Returns true or false.
 
 OBJECT METHODS YOU MAY CARE ABOUT
   $obj->backup_photo($id,$secret)
+
     Backup an individual photo. This method is called internally by
     *backup*.
 
   $obj->scrub()
+
     Returns true or false.
 
   $obj->cancel_backup()
+
     Cancel the backup process as soon as the current photo backup is
     complete.
 
   $obj->register_callback($name, \&func)
+
     This method is still considered experimental and may be removed.
 
     Valid callback triggers are :
@@ -327,6 +339,7 @@ OBJECT METHODS YOU MAY CARE ABOUT
     Returns true or false, if *$func* is not a valid code reference.
 
   $obj->namespaces()
+
     Returns a hash ref of the prefixes and namespaces used by
     *Net::Flickr::RDF*
 
@@ -372,9 +385,11 @@ OBJECT METHODS YOU MAY CARE ABOUT
         variable.
 
   $obj->namespace_prefix($uri)
+
     Return the namespace prefix for *$uri*
 
   $obj->uri_shortform($prefix,$name)
+
     Returns a string in the form of *prefix*:*property*. The property is the
     value of $name. The prefix passed may or may be the same as the prefix
     returned depending on whether or not the user has defined or redefined
@@ -384,6 +399,7 @@ OBJECT METHODS YOU MAY CARE ABOUT
     default list of namespaces.
 
   $obj->make_photo_triples(\%data)
+
     Returns an array ref of array refs of the meta data associated with a
     photo (*%data*).
 
@@ -391,9 +407,11 @@ OBJECT METHODS YOU MAY CARE ABOUT
     and the method returns undef.
 
   $obj->namespace_prefix($uri)
+
     Return the namespace prefix for *$uri*
 
   $obj->uri_shortform($prefix,$name)
+
     Returns a string in the form of *prefix*:*property*. The property is the
     value of $name. The prefix passed may or may be the same as the prefix
     returned depending on whether or not the user has defined or redefined
@@ -403,6 +421,7 @@ OBJECT METHODS YOU MAY CARE ABOUT
     default list of namespaces.
 
   $obj->api_call(\%args)
+
     Valid args are :
 
     * method
@@ -421,10 +440,12 @@ OBJECT METHODS YOU MAY CARE ABOUT
     XML::LibXML is installed) or a *XML::XPath* object.
 
   $obj->log()
+
     Returns a *Log::Dispatch* object.
 
 EXAMPLES
   CONFIG FILES
+
     This is an example of a Config::Simple file used to back up photos
     tagged with 'cameraphone' from Flickr
 
@@ -450,6 +471,7 @@ EXAMPLES
      rdfdump_root=/home/asc/photos
 
   RDF
+
     This is an example of an RDF dump for a photograph backed up from Flickr
     (using Net::Flickr::RDF) :
 
