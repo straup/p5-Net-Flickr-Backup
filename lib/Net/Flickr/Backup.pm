@@ -550,7 +550,7 @@ sub backup {
                         my $id      = $node->getAttribute("id");
                         my $secret  = $node->getAttribute("secret");
                         
-                        $self->log()->info(sprintf("process image %d (%s)",
+                        $self->log()->info(sprintf("process image %s (%s)",
                                                    $id, &_clean($node->getAttribute("title"))));
                         
                         #
@@ -725,7 +725,7 @@ sub backup_photo {
 		}
 
                 my $img_root  = File::Spec->catdir($photos_root, $yyyy, $mm, $dd);
-                my $img_fname = sprintf("%04d%02d%02d-%d-%s%s.%s", $yyyy, $mm, $dd, $id, $title, $FETCH_SIZES{$label}, $ext);
+                my $img_fname = sprintf("%04d%02d%02d-%s-%s%s.%s", $yyyy, $mm, $dd, $id, $title, $FETCH_SIZES{$label}, $ext);
                 
                 $self->log()->info("scrub-store $img_fname");
                 push @{$self->{'_scrub'}->{$id}}, $img_fname;
@@ -1316,7 +1316,7 @@ sub make_photo_triples {
         foreach my $label (keys %{$self->{'__files'}}) {
                 
                 my $uri   = "file://".$self->{'__files'}->{$label};
-                my $photo = sprintf("%s%s/%d", $FLICKR_URL_PHOTOS, $data->{user_id}, $data->{photo_id});
+                my $photo = sprintf("%s%s/%s", $FLICKR_URL_PHOTOS, $data->{user_id}, $data->{photo_id});
                 
                 push @$triples, [$uri, $self->uri_shortform("rdfs", "seeAlso"), $photo];
                 push @$triples, [$uri, $self->uri_shortform("dc", "creator"), $creator_uri];
@@ -1424,7 +1424,7 @@ sub path_rdf_dumpfile {
         my ($yyyy,$mm,$dd) = ($1,$2,$3);	  	    
 
         my $meta_root  = File::Spec->catdir($rdf_root, $yyyy, $mm, $dd);
-        my $meta_fname = sprintf("%04d%02d%02d-%d-%s.xml", $yyyy, $mm, $dd, $id, $title);	
+        my $meta_fname = sprintf("%04d%02d%02d-%s-%s.xml", $yyyy, $mm, $dd, $id, $title);	
         my $meta_path  = File::Spec->catfile($meta_root, $meta_fname);
 
         return $meta_path;
