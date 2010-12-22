@@ -1,0 +1,6 @@
+Build
+MANIFEST.bak
+_build/
+*.tar.gz
+MYMETA.yml
+blib/
