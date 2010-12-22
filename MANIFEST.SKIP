@@ -15,3 +15,4 @@ t/TEST$
 t/SMOKE$
 ^blibdirs\.ts
 ~$^MYMETA.yml$
+^MYMETA.yml$
