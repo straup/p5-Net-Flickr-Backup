@@ -1953,7 +1953,11 @@ $Date: 2010/12/19 19:06:56 $
 
 Aaron Straup Cope E<lt>ascope@cpan.orgE<gt>
 
-=head1 SEE ALSO 
+=head1 CONTRIBUTORS
+
+Thomas Sibley E<lt>tsibley@cpan.orgE<gt>
+
+=head1 SEE ALSO
 
 L<Net::Flickr::API>
 

@@ -10,21 +10,22 @@
         dc:description          "Changes for Net::Flickr::Backup" ;
         dcterms:references      <http://aaronland.info/perl/net/flickr/backup/> .
 
-<http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-3.0.tar.gz>        
+<http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-3.0.tar.gz>
         dcterms:isVersionOf <http://aaronland.info/perl/net/flickr/backup/> ;
         dcterms:replaces    <http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-2.991.tar.gz> ;
 
         doap:Version    [
                         doap:revision     "3.0" ;
-                        doap:created      "2010-12-19" ;
+                        doap:created      "2010-12-22" ;
                         ];
         asc:changes     [
                         asc:update        "Fetch Medium 640, Video Original and Site MP4" ;
                         asc:update        "Require Net::Flickr::RDF 2.2" ;
+			asc:update	  "Thomas Sibley's patches: https://github.com/straup/p5-Net-Flickr-Backup/pull/1" ;
 			asc:bugfix	  "Use originalsecret to fetch EXIF data" ;
                         ] .
 
-<http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-2.991.tar.gz>        
+<http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-2.991.tar.gz>
         dcterms:isVersionOf <http://aaronland.info/perl/net/flickr/backup/> ;
         dcterms:replaces    <http://aaronland.info/perl/net/flickr/backup/Net-Flickr-Backup-2.99.tar.gz> ;
 

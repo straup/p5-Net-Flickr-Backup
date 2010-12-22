@@ -793,6 +793,9 @@ DATE
 AUTHOR
     Aaron Straup Cope <ascope@cpan.org>
 
+CONTRIBUTORS
+    Thomas Sibley <tsibley@cpan.org>
+
 SEE ALSO
     Net::Flickr::API
 
