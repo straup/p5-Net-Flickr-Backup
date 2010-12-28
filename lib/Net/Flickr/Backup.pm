@@ -7,7 +7,7 @@ use warnings;
 package Net::Flickr::Backup;
 use base qw (Net::Flickr::RDF);
 
-$Net::Flickr::Backup::VERSION = '3.0';
+$Net::Flickr::Backup::VERSION = '3.1';
 
 =head1 NAME
 
@@ -1943,7 +1943,7 @@ Flickr (using Net::Flickr::RDF) :
 
 =head1 VERSION
 
-3.0
+3.1
 
 =head1 DATE
 

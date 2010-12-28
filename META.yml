@@ -15,7 +15,7 @@ name: Net-Flickr-Backup
 provides:
   Net::Flickr::Backup:
     file: lib/Net/Flickr/Backup.pm
-    version: 3.0
+    version: 3.1
 requires:
   Date::Format: 2.22
   Date::Parse: 2.27
@@ -32,4 +32,4 @@ requires:
   perl: v5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 3.0
+version: 3.1
