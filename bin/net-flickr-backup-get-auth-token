@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use URI;
+use Config::Simple;
+use Digest::MD5;
+
+my $Config = Config::Simple->new('config.ini');
+
+my $api_key = $Config->param('flickr.api_key');
+if (!$api_key) {
+    die "Did not find flickr.api_key in config.ini";
+}
+
+my $api_secret = $Config->param('flickr.api_secret');
+if (!$api_secret) {
+    die "Did not find flickr.api_secret in config.ini";
+}
+
+my $URI = URI->new('http://flickr.com/services/auth/');
+
+my %params = (
+    'api_key' => $api_key,
+    'perms'   => 'read',
+);
+
+my $api_sig = Digest::MD5::md5_hex(
+    join("",
+        $api_secret,
+        (map { "$_$params{$_}" } sort keys %params)
+    )
+);
+
+$params{'api_sig'} = $api_sig;
+$URI->query_form(%params);
+
+say $URI;
