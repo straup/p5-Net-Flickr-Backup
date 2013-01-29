@@ -1646,6 +1646,8 @@ NOTE - the default of 'fetch_original=true' will fail if you do not have a Flick
 
 Run the net-flickr-backup-do-backup to perform your backup.
 
+If you find any of these steps do not work as expected please consider correcting them and submitting a patch through https://github.com/straup/p5-Net-Flickr-Backup
+
 =head1 EXAMPLES
 
 =cut
