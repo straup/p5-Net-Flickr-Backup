@@ -30,6 +30,8 @@ Net::Flickr::Backup - OOP for backing up your Flickr photos locally
 
 OOP for backing up your Flickr photos locally.
 
+See "STEP BY STEP INSTRUCTIONS" for more details on how to use this module.
+
 =head1 OPTIONS
 
 Options are passed to Net::Flickr::Backup using a Config::Simple object or
@@ -1595,6 +1597,54 @@ sub _iptcify {
         my $self = shift;
         return encode("iso-8859-1", &_decode($_[0])); 
 }
+
+=head1 STEP BY STEP INSTRUCTIONS
+
+=head2 Create a new App
+
+You can do this here: http://www.flickr.com/services/apps/create/apply/
+
+Now you have an API key and an API secret
+
+=head2 Set up the App with an arbitrary callback URL
+
+Go to your profile page's sharing page (http://www.flickr.com/account/sharing/)
+
+Click on your API key link to go to your App's page
+
+Click through to your Backup app
+
+On the right in the "admin" section go to "edit authentication flow"
+
+Add any old URL - it doesn't matter what it is, you won't be using it!
+
+=head2 Authorize the App
+
+Create config.ini with a block [flickr] that contains api_key and api_secret
+
+Run net-flickr-backup-get-auth-token to get your auth token
+
+Visit the URL and authorize the App by following the instructions
+
+Get the 'frob' parameter's value from the callback URL you end up at
+
+=head2 Get an auth_token
+
+Visit the Flickr API Explorer for flickr.auth.getToken (http://www.flickr.com/services /api/explore/flickr.auth.getTo ken)
+
+Add the frob from above and submit the form with the 'Call Method...' button
+
+Copy the value between the <token> tags into the config.ini as flickr.auth_token
+
+=head2 Set up the rest of your config.ini
+
+For more information see CONFIG FILES in EXAMPLES below.
+
+NOTE - the default of 'fetch_original=true' will fail if you do not have a Flickr Pro account, as Flickr does not give you access to your original photos unless you have a Pro account.
+
+=head2 Run net-flickr-backup-do-backup
+
+Run the net-flickr-backup-do-backup to perform your backup.
 
 =head1 EXAMPLES
 
